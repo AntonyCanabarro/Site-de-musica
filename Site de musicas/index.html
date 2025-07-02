@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Music</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Importa os ícones do Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+  <!-- Pré-carregamento das fontes do Google para melhor desempenho -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Importação das fontes personalizadas para estilização do texto -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cabin:ital,wght@0,400..700;1,400..700&family=Passion+One:wght@400;700;900&family=Rubik+Mono+One&family=Russo+One&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+
+<body>
+  <!-- Camadas de estrelas usadas como fundo animado -->
+  <div class="estrelas layer" id="camada1"></div>
+  <div class="estrelas layer layer2" id="camada2"></div>
+  <!-- Estrutura principal do app -->
+  <div class="app">
+    <aside class="sidebar">
+      <!-- Logo exibida na barra lateral -->
+      <img src="img/1000044591 (2).png" alt="Logo Cósmico" class="logo" />
+      <!-- Menu de navegação lateral -->
+      <nav class="nav">
+        <ul>
+          <li>Início</li>
+          <li>Explorar</li>
+          <li>Sua Biblioteca</li>
+        </ul>
+      </nav>
+      <!-- Botão para criar nova playlist -->
+      <button id="btnCriarPlaylist" class="btn-criar-playlist">
+        + Criar Playlist
+      </button>
+
+      <!-- Lista de playlists criadas pelo usuário -->
+      <div id="listaPlaylists" class="lista-playlists"></div>
+    </aside>
+
+    <main class="conteudo">
+      <header class="cabeça">
+        <!-- Título de boas-vindas -->
+        <h1>Bem-vindo ao COSMIC</h1>
+
+        <!-- Campo de busca de músicas/artistas -->
+        <div class="busca">
+          <input
+            type="text"
+            class="campo-texto"
+            id="barraBusca"
+            placeholder="Buscar músicas, artistas..."
+            autocomplete="off"
+          />
+          <!-- Resultados dinâmicos da busca -->
+          <ul id="resultadosBusca" class="resultados-busca"></ul>
+        </div>
+      </header>
+
+      <!-- Área que mostra as músicas da playlist selecionada -->
+      <section id="playlistDetalhes" class="playlist-detalhes">
+        <h2>Selecione uma playlist</h2>
+        <ul id="musicasPlaylist" class="musicas-playlist"></ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- Rodapé com o player de música -->
+  <footer class="player">
+    <!-- Informação da música atual -->
+    <div class="info-musica">
+      Tocando agora: <strong id="musica-atual">Nenhuma</strong>
+    </div>
+
+    <!-- Botões de controle de reprodução (voltar, play/pause, avançar) -->
+    <div class="controles">
+      <button onclick="audioPlayer.currentTime -= 10">
+        <i class="bi bi-skip-backward-circle-fill"></i>
+      </button>
+      <button id="btnPlayPause">
+        <i class="bi bi-play-circle-fill"></i>
+      </button>
+      <button onclick="audioPlayer.currentTime += 10">
+        <i class="bi bi-skip-forward-circle-fill"></i>
+      </button>
+    </div>
+
+    <!-- Elemento de áudio que toca as músicas -->
+    <audio id="audioPlayer"></audio>
+
+    <!-- Barra de progresso da música com tempo atual e total -->
+    <div class="barra-andamento">
+      <span id="tempoAtual">0:00</span>
+      <input type="range" id="barraProgresso" value="0" min="0" max="100" />
+      <span id="tempoTotal">0:00</span>
+    </div>
+  </footer>
+
+  <!-- Importa o script JavaScript principal do app -->
+  <script src="script.js"></script>
+
+  <!-- Espaço para código JS adicional -->
+  <script>
+  </script>
+</body>
+</html>
